@@ -1,6 +1,8 @@
 <script setup>
 const topic = ref("");
 const result = ref("");
+const loading = ref(false);
+const message = ref("");
 
 let primary = ref("#7664E9");
 let secondary = ref("#A1D631");
@@ -9,6 +11,9 @@ let accent2 = ref("#008080");
 let accent3 = ref("#C93756");
 
 const onSubmit = async () => {
+  loading.value = true;
+  message.value = "";
+
   fetch("/api/generate", {
     method: "POST",
     headers: {
@@ -29,23 +34,18 @@ const onSubmit = async () => {
         accent2.value = extract[3];
         accent3.value = extract[4];
 
-        // console.log(
-        //   "values ///// ",
-        //   primary,
-        //   secondary,
-        //   accent1,
-        //   accent2,
-        //   accent3
-        // );
-
         // console.log(result.value); // {"primary": "#FF0000","secondary": "#FFCF00","accent1": "#FFA500"}
       } else {
         console.error("Response from server does not contain a body property");
       }
+      loading.value = false;
+      topic.value = "";
     })
 
     .catch((error) => {
       console.error(error);
+      message.value = "An error occurred";
+      loading.value = false;
     });
 };
 
@@ -58,10 +58,15 @@ function extractHexValues(output) {
   <div>
     <form @submit.prevent="onSubmit">
       <label for="topic">Topic:</label>
-      <input id="topic" v-model="topic" />
-      <button type="submit">Submit</button>
+      <input id="topic" v-model="topic" :disabled="loading" />
+      <button type="submit" :disabled="loading">Generate</button>
     </form>
-    <div v-if="result">
+
+    <div v-if="loading">Loading...</div>
+    <div v-else-if="message">
+      {{ message }}
+    </div>
+    <div v-else-if="result">
       <pre>Result: {{ result }}</pre>
       <hr />
       <div id="primary-container" :style="{ backgroundColor: primary }">
