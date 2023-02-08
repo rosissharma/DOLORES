@@ -49,10 +49,6 @@ const onSubmit = async () => {
       loading.value = false;
     });
 };
-
-function extractHexValues(output) {
-  return output.split(", ");
-}
 </script>
 
 <template>
@@ -118,7 +114,11 @@ function extractHexValues(output) {
           class="w-28 h-28 rounded-md"
           :style="{ backgroundColor: primary }"
         ></div>
-        <button class="opacity-50" title="Copy to clipboard" @click="log()">
+        <button
+          class="opacity-50"
+          title="Copy to clipboard"
+          @click="log(primary)"
+        >
           {{ primary }} 0_0
         </button>
       </div>
