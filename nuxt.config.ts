@@ -7,4 +7,11 @@ export default defineNuxtConfig({
         // Keys within public are also exposed client-side
         public: {}
     },
+    css: ['~/assets/css/main.css'],
+    postcss: {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    },
 })
