@@ -117,7 +117,7 @@ const onSubmit = async () => {
         <button
           class="opacity-50"
           title="Copy to clipboard"
-          @click="log(primary)"
+          @click="clipboard(primary)"
         >
           {{ primary }} 0_0
         </button>
