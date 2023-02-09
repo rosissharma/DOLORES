@@ -1,4 +1,8 @@
 <script setup>
+import { LogSnag } from "logsnag";
+
+const config = useRuntimeConfig();
+
 const topic = ref("");
 const result = ref("");
 const loading = ref(false);
@@ -19,6 +23,8 @@ let accent3 = ref("#C93756");
 const onSubmit = async () => {
   loading.value = true;
   message.value = "";
+
+  log(topic.value);
 
   fetch("/api/generate", {
     method: "POST",
@@ -45,7 +51,7 @@ const onSubmit = async () => {
         console.error("Response from server does not contain a body property");
       }
       loading.value = false;
-      topic.value = "";
+      // topic.value = "";
     })
 
     .catch((error) => {
@@ -54,6 +60,21 @@ const onSubmit = async () => {
       loading.value = false;
     });
 };
+
+function log(currentTopic) {
+  // handle LogSnag
+  const logsnag = new LogSnag({
+    token: config.LOG_SNAG_KEY,
+    project: "dolores",
+  });
+  logsnag.publish({
+    channel: "color-generated",
+    event: "Color Generated",
+    description: currentTopic,
+    icon: "🎨",
+    notify: true,
+  });
+}
 </script>
 
 <template>
