@@ -4,6 +4,11 @@ const result = ref("");
 const loading = ref(false);
 const message = ref("");
 
+// color types
+const typePrimary = ref("Primary");
+const typeSecondary = ref("Secondary");
+const typeAccent = ref("Accent");
+
 // set it to empty on production
 let primary = ref("#7664E9");
 let secondary = ref("#A1D631");
@@ -52,7 +57,7 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <div class="mt-4 grid place-items-center">
+  <div class="grid place-items-center">
     <!-- <form @submit.prevent="onSubmit">
       <label for="topic">Topic:</label>
       <input id="topic" v-model="topic" :disabled="loading" />
@@ -60,13 +65,14 @@ const onSubmit = async () => {
     </form> -->
 
     <!-- main form -->
-    <div class="form-control p-8">
-      <form @submit.prevent="onSubmit">
+    <div class="form-control pb-8">
+      <form @submit.prevent="onSubmit" class="sm:w-[460px]">
         <div class="input-group">
           <input
             id="topic"
             type="text"
-            placeholder="Search…"
+            placeholder="Dolores, generate..."
+            required
             v-model="topic"
             :disabled="loading"
             class="input input-bordered w-full"
@@ -101,41 +107,23 @@ const onSubmit = async () => {
       </form>
     </div>
 
-    <div
-      id="result-container"
-      class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative"
-    >
-      <div id="primary-container">
-        <span class="position absolute top-4 -left-10 rotate-90"
-          >left text</span
-        >
-        <div
-          id="primary"
-          class="w-28 h-28 rounded-md"
-          :style="{ backgroundColor: primary }"
-        ></div>
-        <button
-          class="opacity-50"
-          title="Copy to clipboard"
-          @click="clipboard(primary)"
-        >
-          {{ primary }} 0_0
-        </button>
-      </div>
-      <div id="secondary-container">
-        <div
-          id="secondary"
-          class="w-28 h-28 rounded-md"
-          :style="{ backgroundColor: secondary }"
-        ></div>
-      </div>
-      <div id="accent1-container">
-        <div
-          id="accent1"
-          class="w-28 h-28 rounded-md"
-          :style="{ backgroundColor: accent1 }"
-        ></div>
-      </div>
+    <!-- triadic color block -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-16">
+      <!-- primary -->
+      <TriadicBlock :color="primary" :colorType="typePrimary" />
+      <!-- secondary -->
+      <TriadicBlock :color="secondary" :colorType="typeSecondary" />
+      <!-- accent -->
+      <TriadicBlock :color="accent1" :colorType="typeAccent" />
+    </div>
+
+    <!-- color grid block -->
+    <div class="mt-10 h-52 sm:h-80 flex">
+      <GridBlock :color="primary" />
+      <GridBlock :color="secondary" />
+      <GridBlock :color="accent1" />
+      <GridBlock :color="accent2" />
+      <GridBlock :color="accent3" />
     </div>
 
     <!-- display while fetching data -->
