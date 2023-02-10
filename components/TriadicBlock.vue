@@ -4,17 +4,7 @@
       <div class="relative">
         <!-- color type left aligned and roate -90 deg -->
         <span
-          class="
-            absolute
-            w-full
-            h-full
-            opacity-70
-            top-48
-            left-7
-            text-3xl
-            uppercase
-            font-bold
-          "
+          class="absolute opacity-70 top-48 left-7 text-3xl uppercase font-bold"
         >
           {{ colorType }}
         </span>
