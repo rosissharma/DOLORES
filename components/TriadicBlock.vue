@@ -8,11 +8,12 @@
             absolute
             w-full
             h-full
-            text-center
-            -left-5
-            -rotate-90
             opacity-70
-            -top-[10px]
+            top-48
+            left-7
+            text-3xl
+            uppercase
+            font-bold
           "
         >
           {{ colorType }}
@@ -20,13 +21,13 @@
         <!-- color block -->
         <div
           id="primary"
-          class="w-28 h-28 rounded-md"
+          class="w-72 h-72 rounded-xl shadow-2xl"
           :style="{ backgroundColor: color }"
         ></div>
         <!-- hex value and clipboard -->
-        <div class="flex justify-center">
+        <div class="absolute top-56 left-7 text-3xl uppercase font-bold">
           <button
-            class="opacity-50 mt-1 text-center flex justify-center"
+            class="opacity-50 mt-1 flex justify-center"
             title="Copy to clipboard"
             @click="clipboard(color)"
           >
@@ -37,7 +38,7 @@
               fill="none"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              class="mt-1 w-8 h-8"
             >
               <path
                 stroke-linecap="round"

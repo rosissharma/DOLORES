@@ -129,7 +129,7 @@ function log(currentTopic) {
     </div>
 
     <!-- triadic color block -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-16">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
       <!-- primary -->
       <TriadicBlock :color="primary" :colorType="typePrimary" />
       <!-- secondary -->
