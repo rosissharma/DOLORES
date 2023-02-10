@@ -15,7 +15,7 @@ module.exports = {
   // daisyUI config (optional)
   daisyui: {
     styled: true,
-    themes: ["dracula"],
+    themes: ["emerald"],
     base: true,
     utils: true,
     logs: true,
