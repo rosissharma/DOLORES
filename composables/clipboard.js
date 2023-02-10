@@ -2,9 +2,9 @@ export function clipboard(val) {
     navigator.clipboard.writeText(val).then(
         () => {
             const copiedDiv = document.createElement('div');
-            copiedDiv.innerHTML = `${val} Copied 🎉`;
+            copiedDiv.innerHTML = `${val.toUpperCase()} Copied 🎉`;
             copiedDiv.style.backgroundColor = '#222222';
-            copiedDiv.style.color = '#FFFFFF';
+            copiedDiv.style.color = val;
             copiedDiv.style.borderRadius = '20px';
             copiedDiv.style.padding = '10px';
             copiedDiv.style.position = 'fixed';
