@@ -20,6 +20,7 @@
         {{ color }}
       </button>
     </div>
+    <button @click="tint(color)">View Tints!</button>
   </div>
 </template>
 
@@ -28,6 +29,13 @@ export default {
   props: {
     color: {
       type: String,
+    },
+  },
+  methods: {
+    tint(val) {
+      let getTints = generateColors(val);
+      let tints = getTints;
+      console.log(tints);
     },
   },
 };

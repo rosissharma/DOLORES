@@ -96,7 +96,7 @@ function log(currentTopic) {
             required
             v-model="topic"
             :disabled="loading"
-            class="input input-bordered w-full"
+            class="input input-bordered w-[240px] sm:w-full"
           />
           <button
             v-if="loading"
@@ -129,7 +129,7 @@ function log(currentTopic) {
     </div>
 
     <!-- triadic color block -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
       <!-- primary -->
       <TriadicBlock :color="primary" :colorType="typePrimary" />
       <!-- secondary -->
