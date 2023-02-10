@@ -6,7 +6,9 @@ export default defineNuxtConfig({
         OPENAI_API_KEY: process.env.OPENAI_API_KEY,
 
         // Keys within public are also exposed client-side
-        public: { LOG_SNAG_KEY: process.env.LOG_SNAG_KEY, }
+        public: {
+            LOG_SNAG_KEY: process.env.LOG_SNAG_KEY,
+        }
     },
     css: ['~/assets/css/main.css'],
     postcss: {
