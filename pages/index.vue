@@ -139,12 +139,18 @@ function log(currentTopic) {
     </div>
 
     <!-- color grid block -->
-    <div class="mt-10 h-52 sm:h-80 flex">
+    <div class="mt-10 h-52 flex gap-1 sm:h-80 sm:gap-4 mx-1">
       <GridBlock :color="primary" />
       <GridBlock :color="secondary" />
       <GridBlock :color="accent1" />
       <GridBlock :color="accent2" />
       <GridBlock :color="accent3" />
+    </div>
+
+    <!-- gradient block -->
+    <div class="mt-14">
+      <h1>Gradient</h1>
+      <GradientBlock :gradientColors="primary" />
     </div>
 
     <!-- display while fetching data -->
