@@ -11,9 +11,7 @@
         sm:h-full
         grid
         place-content-center
-        transition
-        ease-in-out
-        delay-150
+        rounded-lg
       "
       :style="{ backgroundColor: color }"
     >
@@ -32,33 +30,34 @@
       </button>
     </div>
     <template v-if="showTints">
-      <div
-        class="
-          w-18
-          h-[2.4rem]
-          sm:w-32 sm:h-16
-          lg:w-44 lg:h-16
-          grid
-          place-content-center
-          transition
-          ease-in-out
-          delay-150
-        "
-        v-for="tint in tints"
-        :key="tint"
-        :style="{ backgroundColor: tint }"
-      >
-        <button
-          class="text-sm sm:text-xl uppercase font-bold mix-blend-difference"
-          @click="clipboard(tint)"
+      <div class="rounded-lg bg-white">
+        <div
+          id="tints"
+          class="
+            w-18
+            h-[2.4rem]
+            sm:w-32 sm:h-16
+            lg:w-44 lg:h-16
+            grid
+            place-content-center
+          "
+          v-for="tint in tints"
+          :key="tint"
+          :style="{ backgroundColor: tint }"
         >
-          {{ tint }}
-        </button>
+          <button
+            class="text-sm sm:text-xl uppercase font-bold mix-blend-difference"
+            @click="clipboard(tint)"
+          >
+            {{ tint }}
+          </button>
+        </div>
       </div>
     </template>
     <button
       @click="toggleTints(color)"
-      class="btn btn-xs sm:btn-sm rounded-full mt-1"
+      class="btn btn-sm mt-1"
+      aria-label="Show tints"
     >
       {{ showTints ? "🫣 TINTS!" : "👀 TINTS!" }}
     </button>
@@ -89,3 +88,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#tints:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+#tints:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+</style>
