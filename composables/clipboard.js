@@ -6,7 +6,7 @@ export function clipboard(val) {
             copiedDiv.style.backgroundColor = '#222222';
             copiedDiv.style.color = val;
             copiedDiv.style.borderRadius = '25px';
-            copiedDiv.style.padding = '10px';
+            copiedDiv.style.padding = '10px 15px';
             copiedDiv.style.position = 'fixed';
             copiedDiv.style.bottom = '50px';
             copiedDiv.style.left = '50%';
