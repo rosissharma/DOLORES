@@ -5,7 +5,7 @@ export function clipboard(val) {
             copiedDiv.innerHTML = `${val.toUpperCase()} Copied 🎉`;
             copiedDiv.style.backgroundColor = '#222222';
             copiedDiv.style.color = val;
-            copiedDiv.style.borderRadius = '20px';
+            copiedDiv.style.borderRadius = '25px';
             copiedDiv.style.padding = '10px';
             copiedDiv.style.position = 'fixed';
             copiedDiv.style.bottom = '50px';
