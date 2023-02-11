@@ -79,12 +79,6 @@ function log(currentTopic) {
 
 <template>
   <div class="grid place-items-center">
-    <!-- <form @submit.prevent="onSubmit">
-      <label for="topic">Topic:</label>
-      <input id="topic" v-model="topic" :disabled="loading" />
-      <button type="submit" :disabled="loading">Generate</button>
-    </form> -->
-
     <!-- main form -->
     <div class="form-control pb-8">
       <form @submit.prevent="onSubmit" class="sm:w-[460px]">
