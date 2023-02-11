@@ -128,29 +128,35 @@ function log(currentTopic) {
       </form>
     </div>
 
-    <!-- triadic color block -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- primary -->
-      <TriadicBlock :color="primary" :colorType="typePrimary" />
-      <!-- secondary -->
-      <TriadicBlock :color="secondary" :colorType="typeSecondary" />
-      <!-- accent -->
-      <TriadicBlock :color="accent1" :colorType="typeAccent" />
+    <div>
+      <h1>Triadic</h1>
+      <!-- triadic color block -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- primary -->
+        <TriadicBlock :color="primary" :colorType="typePrimary" />
+        <!-- secondary -->
+        <TriadicBlock :color="secondary" :colorType="typeSecondary" />
+        <!-- accent -->
+        <TriadicBlock :color="accent1" :colorType="typeAccent" />
+      </div>
     </div>
 
     <!-- color grid block -->
-    <div class="mt-10 h-52 flex gap-1 sm:h-80 sm:gap-4 mx-1">
-      <GridBlock :color="primary" />
-      <GridBlock :color="secondary" />
-      <GridBlock :color="accent1" />
-      <GridBlock :color="accent2" />
-      <GridBlock :color="accent3" />
+    <div>
+      <h1>Grid</h1>
+      <div class="h-52 flex gap-1 sm:h-80 sm:gap-4 mx-1">
+        <GridBlock :color="primary" />
+        <GridBlock :color="secondary" />
+        <GridBlock :color="accent1" />
+        <GridBlock :color="accent2" />
+        <GridBlock :color="accent3" />
+      </div>
     </div>
 
     <!-- gradient block -->
     <div class="mt-14">
       <h1>Gradient</h1>
-      <GradientBlock :gradientColors="primary" />
+      <GradientBlock :gradientColors="[primary, secondary, accent1]" />
     </div>
 
     <!-- display while fetching data -->
