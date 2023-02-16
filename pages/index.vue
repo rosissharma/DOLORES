@@ -35,7 +35,6 @@ const onSubmit = async () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log("data = ", data.body);
       if (data.body) {
         result.value = data.body.result;
         let extract = extractHexValues(result.value); //[ "#2A2A2A", "#4F4F4F", "#7F7F7F" ]
@@ -45,8 +44,6 @@ const onSubmit = async () => {
         accent1.value = extract[2];
         accent2.value = extract[3];
         accent3.value = extract[4];
-
-        // console.log(result.value); // {"primary": "#FF0000","secondary": "#FFCF00","accent1": "#FFA500"}
       } else {
         console.error("Response from server does not contain a body property");
       }
