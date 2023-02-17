@@ -24,7 +24,7 @@ const onSubmit = async () => {
   loading.value = true;
   message.value = "";
 
-  log(topic.value);
+  // log(topic.value);
 
   fetch("/api/generate", {
     method: "POST",
@@ -67,7 +67,12 @@ function log(currentTopic) {
   logsnag.publish({
     channel: "color-generated",
     event: "Color Generated",
-    description: currentTopic,
+    description: `Topic: ${currentTopic}
+    Primary: ${primary.value}
+    Secondary: ${secondary.value}
+    Accent1: ${accent1.value}
+    Accent2: ${accent2.value}
+    Accent3: ${accent3.value}`,
     icon: "🎨",
     notify: true,
   });
