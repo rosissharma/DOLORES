@@ -15,10 +15,14 @@
       />
     </svg>
     <div class="grid place-items-center">
-      <div class="text-6xl">
-        D<input type="color" class="color-swatch" value="#7664E9" />L<input
+      <div class="text-5xl md:text-6xl">
+        D<input
           type="color"
-          class="color-swatch"
+          class="color-swatch w-9 h-9 sm:w-11 sm:h-11"
+          value="#7664E9"
+        />L<input
+          type="color"
+          class="color-swatch w-9 h-9 sm:w-11 sm:h-11"
           value="#7664E9"
         />RES
       </div>
@@ -33,18 +37,23 @@ export default {};
 
 <style scoped>
 .color-swatch {
-  width: 45px;
-  height: 45px;
-  border-radius: 100%;
-  overflow: hidden;
-  outline: none;
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 100px;
   cursor: pointer;
 }
 
 ::-webkit-color-swatch,
+::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 100px;
+  padding: 0;
+}
+
 ::-moz-color-swatch {
   border: none;
-  border-radius: 100%;
+  border-radius: 100px;
   padding: 0;
 }
 </style>
