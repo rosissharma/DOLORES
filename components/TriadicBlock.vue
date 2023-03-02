@@ -2,18 +2,8 @@
   <div>
     <div id="result-container">
       <div class="relative">
-        <!-- color type left aligned and roate -90 deg -->
         <span
-          class="
-            absolute
-            opacity-70
-            top-48
-            left-7
-            text-3xl
-            uppercase
-            font-bold
-            mix-blend-difference
-          "
+          class="absolute opacity-70 top-48 left-7 text-3xl uppercase font-bold mix-blend-difference"
         >
           {{ colorType }}
         </span>
@@ -25,15 +15,7 @@
         ></div>
         <!-- hex value and clipboard -->
         <div
-          class="
-            absolute
-            top-56
-            left-7
-            text-3xl
-            uppercase
-            font-bold
-            mix-blend-difference
-          "
+          class="absolute top-56 left-7 text-3xl uppercase font-bold mix-blend-difference"
         >
           <button
             class="opacity-50 mt-1 flex justify-center"
