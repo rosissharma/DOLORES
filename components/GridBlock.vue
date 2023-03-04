@@ -34,6 +34,7 @@
       @click="toggleTints(color)"
       class="btn btn-sm mt-1 w-full text-xs sm:text-base"
       aria-label="Show tints"
+      :style="{ backgroundColor: color, borderColor: color }"
     >
       {{ showTints ? "🫣 TINTS!" : "👀 TINTS!" }}
     </button>
