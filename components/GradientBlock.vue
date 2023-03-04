@@ -1,27 +1,10 @@
 <template>
   <div
-    class="
-      w-96
-      h-44
-      rounded-lg
-      shadow-lg
-      relative
-      sm:w-[44rem]
-      lg:w-[59rem] lg:h-72
-    "
+    class="w-[27rem] sm:w-full h-52 rounded-lg shadow-lg relative sm:h-72 lg:h-96"
     :style="{ backgroundImage: createBackgroundString }"
   >
     <button
-      class="
-        btn btn-xs
-        sm:btn-sm
-        absolute
-        rounded-lg
-        shadow-lg
-        top-3
-        right-3
-        z-10
-      "
+      class="btn btn-xs sm:btn-sm absolute rounded-lg shadow-lg top-3 right-3 z-10"
       @click="showCode = !showCode"
     >
       <svg
@@ -41,27 +24,10 @@
     </button>
     <div
       v-if="showCode"
-      class="
-        w-full
-        h-full
-        rounded-lg
-        mockup-code
-        bg-primary
-        text-primary-content
-        break-word
-      "
+      class="w-full h-full rounded-lg mockup-code bg-primary text-primary-content break-word"
     >
       <button
-        class="
-          btn btn-xs
-          sm:btn-sm
-          rounded-lg
-          shadow-lg
-          absolute
-          top-3
-          right-12
-          sm:right-14
-        "
+        class="btn btn-xs sm:btn-sm rounded-lg shadow-lg absolute top-3 right-12 sm:right-14"
         @click="copyCode(createBackgroundString)"
       >
         <svg
