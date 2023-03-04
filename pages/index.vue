@@ -14,11 +14,11 @@ const typeSecondary = ref("Secondary");
 const typeAccent = ref("Accent");
 
 // set it to empty on production
-let primary = ref("#7664E9");
-let secondary = ref("#A1D631");
-let accent1 = ref("#D13939");
-let accent2 = ref("#008080");
-let accent3 = ref("#C93756");
+let primary = ref("#C6B4D8");
+let secondary = ref("#CEE0E6");
+let accent1 = ref("#F0EAE0");
+let accent2 = ref("#F5C0BF");
+let accent3 = ref("#EAD4D4");
 
 const onSubmit = async () => {
   loading.value = true;
