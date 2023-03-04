@@ -2,28 +2,11 @@
   <div class="text-center">
     <div
       v-if="!showTints"
-      class="
-        group
-        w-18
-        sm:w-32
-        lg:w-44
-        h-48
-        sm:h-full
-        grid
-        place-content-center
-        rounded-lg
-      "
+      class="group w-18 sm:w-32 lg:w-44 h-48 sm:h-full grid place-content-center rounded-lg"
       :style="{ backgroundColor: color }"
     >
       <button
-        class="
-          opacity-60
-          text-sm
-          sm:text-xl
-          uppercase
-          font-bold
-          mix-blend-difference
-        "
+        class="opacity-60 text-sm sm:text-xl uppercase font-bold mix-blend-difference"
         @click="clipboard(color)"
       >
         {{ color }}
@@ -33,14 +16,7 @@
       <div class="rounded-lg bg-white">
         <div
           id="tints"
-          class="
-            w-18
-            h-[2.4rem]
-            sm:w-32 sm:h-16
-            lg:w-44 lg:h-16
-            grid
-            place-content-center
-          "
+          class="w-18 h-[2.4rem] sm:w-32 sm:h-16 lg:w-44 lg:h-16 grid place-content-center"
           v-for="tint in tints"
           :key="tint"
           :style="{ backgroundColor: tint }"
@@ -56,7 +32,7 @@
     </template>
     <button
       @click="toggleTints(color)"
-      class="btn btn-sm mt-1"
+      class="btn btn-sm mt-1 w-full text-xs sm:text-base"
       aria-label="Show tints"
     >
       {{ showTints ? "🫣 TINTS!" : "👀 TINTS!" }}
