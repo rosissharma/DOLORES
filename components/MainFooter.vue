@@ -1,17 +1,11 @@
 <template>
-  <div class="flex justify-evenly p-4 gap-10">
+  <div class="w-full mx-auto flex justify-between p-4 md:w-3/6">
     <div>Powered by OpenAI</div>
     <div class="flex gap-4">
       <span
         >Made by
         <a
-          class="
-            underline
-            decoration-wavy
-            hover:decoration-indigo-500
-            transition-all
-            duration-900
-          "
+          class="underline decoration-wavy hover:decoration-indigo-500 transition-all duration-900"
           href="https://rosissharma.com/"
           target="_blank"
           >Rosis Sharma</a
