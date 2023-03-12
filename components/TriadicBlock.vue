@@ -18,7 +18,7 @@
           class="absolute top-56 left-7 text-3xl uppercase font-bold mix-blend-difference"
         >
           <button
-            class="opacity-50 mt-1 flex justify-center"
+            class="opacity-50 mt-1 flex justify-center uppercase"
             title="Copy to clipboard"
             @click="clipboard(color)"
           >
