@@ -5,11 +5,11 @@
         D<input
           type="color"
           class="color-swatch w-9 h-9 sm:w-11 sm:h-11"
-          value="#7664E9"
+          value="#ffb8c1"
         />L<input
           type="color"
           class="color-swatch w-9 h-9 sm:w-11 sm:h-11"
-          value="#7664E9"
+          value="#9bc3e4"
         />RES
       </div>
       <div class="text-gray-500">Your AI Color Generative Assistant</div>
