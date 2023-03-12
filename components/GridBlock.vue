@@ -1,9 +1,10 @@
 <template>
   <div class="text-center">
-    <div
+    <button
       v-if="!showTints"
-      class="group w-18 sm:w-32 lg:w-44 h-48 sm:h-full grid place-content-center rounded-lg"
+      class="group w-18 sm:w-32 lg:w-44 h-48 sm:h-full grid place-content-center rounded-lg hover:scale-95 transition-all"
       :style="{ backgroundColor: color }"
+      @click="clipboard(color)"
     >
       <button
         class="opacity-60 text-sm sm:text-xl uppercase font-bold mix-blend-difference"
@@ -11,15 +12,16 @@
       >
         {{ color }}
       </button>
-    </div>
+    </button>
     <template v-if="showTints">
       <div class="rounded-lg bg-white">
-        <div
+        <button
           id="tints"
-          class="w-18 h-[2.4rem] sm:w-32 sm:h-16 lg:w-44 lg:h-16 grid place-content-center"
+          class="w-18 h-[2.4rem] sm:w-32 sm:h-16 lg:w-44 lg:h-16 grid place-content-center transition-all hover:scale-105 hover:rounded-lg"
           v-for="tint in tints"
           :key="tint"
           :style="{ backgroundColor: tint }"
+          @click="clipboard(tint)"
         >
           <button
             class="text-sm sm:text-xl uppercase font-bold mix-blend-difference"
@@ -27,12 +29,12 @@
           >
             {{ tint }}
           </button>
-        </div>
+        </button>
       </div>
     </template>
     <button
       @click="toggleTints(color)"
-      class="btn btn-sm mt-1 w-full text-xs sm:text-base"
+      class="btn btn-sm mt-1 w-full text-xs sm:text-base hover:scale-95 active:scale-50"
       aria-label="Show tints"
       :style="{ backgroundColor: color, borderColor: color }"
     >
