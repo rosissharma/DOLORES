@@ -1,8 +1,8 @@
 <template>
   <div class="text-center">
-    <button
+    <div
       v-if="!showTints"
-      class="group w-18 sm:w-32 lg:w-44 h-48 sm:h-full grid place-content-center rounded-lg hover:scale-95 transition-all"
+      class="group w-18 sm:w-32 lg:w-44 h-48 sm:h-full grid place-content-center rounded-lg hover:scale-95 transition-all cursor-pointer"
       :style="{ backgroundColor: color }"
       @click="clipboard(color)"
     >
@@ -12,12 +12,12 @@
       >
         {{ color }}
       </button>
-    </button>
+    </div>
     <template v-if="showTints">
       <div class="rounded-lg bg-white">
-        <button
+        <div
           id="tints"
-          class="w-18 h-[2.4rem] sm:w-32 sm:h-16 lg:w-44 lg:h-16 grid place-content-center transition-all hover:scale-105 hover:rounded-lg"
+          class="w-18 h-[2.4rem] sm:w-32 sm:h-16 lg:w-44 lg:h-16 grid place-content-center transition-all hover:scale-105 hover:rounded-lg cursor-pointer"
           v-for="tint in tints"
           :key="tint"
           :style="{ backgroundColor: tint }"
@@ -29,7 +29,7 @@
           >
             {{ tint }}
           </button>
-        </button>
+        </div>
       </div>
     </template>
     <button
