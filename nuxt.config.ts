@@ -15,4 +15,15 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
+    app: {
+        head: {
+            title: 'DOLORES',
+            meta: [
+                { charset: 'utf-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                { hid: 'description', name: 'description', content: 'DOLORES is an innovative AI color generative assistant that harnesses the power of OpenAI to create stunning color palettes for your projects. With DOLORES, you can easily generate unique and harmonious color schemes for your designs, logos, and branding materials. Experience the convenience and creativity of AI-assisted color generation with DOLORES today.' },
+            ],
+            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        },
+    },
 })
