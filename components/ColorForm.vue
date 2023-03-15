@@ -35,16 +35,13 @@
 <script setup>
 let topic;
 
-let handleSubmit = () => {
+let handleSubmit = async () => {
   //   navigateTo(`/palette/${topic}`);
-  //   let results = getColors(topic);
-  //   console.log("results from component: ", results);
+  // let results = getColors(topic);
+  // console.log("results from component: ", toRaw((await results).palette.value));
+  //   console.log("results from component: ", (await results).palette);
 
-  const { primary, secondary, accent1, accent2, accent3 } = getColors(topic);
-  console.log("primary: ", primary);
-  console.log("secondary: ", secondary);
-  console.log("accent1: ", accent1);
-  console.log("accent2: ", accent2);
-  console.log("accent3: ", accent3);
+  let { palette } = await getColors(topic);
+  console.log("results from component: ", toRaw(palette.value));
 };
 </script>
