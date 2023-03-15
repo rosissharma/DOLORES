@@ -10,10 +10,9 @@ let accent1 = ref("#FBE7D0");
 let accent2 = ref("#F3F3DD");
 let accent3 = ref("#D0E6DF");
 
-let palette = ref();
-
-export default function getColors(topic) {
-    fetch("/api/generate", {
+export default async function getColors(topic) {
+    let palette = ref([]);
+    await fetch("/api/generate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -32,20 +31,20 @@ export default function getColors(topic) {
                 accent2.value = extract[3];
                 accent3.value = extract[4];
 
-                palette = [{ primary: primary.value }, { secondary: secondary.value }, { accent1: accent1.value }, { accent2: accent2.value }, { accent3: accent3.value }];
-
-
+                // const generated_palettes = [{ primary: primary.value }, { secondary: secondary.value }, { accent1: accent1.value }, { accent2: accent2.value }, { accent3: accent3.value }];
+                const generated_palettes = { primary: primary.value, secondary: secondary.value, accent1: accent1.value, accent2: accent2.value, accent3: accent3.value };
+                // palette.value.push(generated_palettes);
+                palette.value = generated_palettes;
             } else {
                 console.error("Response from server does not contain a body property");
             }
             loading.value = false;
             // topic.value = "";
         })
-
         .catch((error) => {
             console.error(error);
             message.value = "An error occurred";
             loading.value = false;
         });
-    return primary.value;
+    return { palette };
 }
