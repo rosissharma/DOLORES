@@ -58,18 +58,5 @@ let accent3 = route.accent3;
         <GridBlock :color="accent3" />
       </div>
     </div>
-
-    <!-- gradient block -->
-    <div class="my-10">
-      <!-- title -->
-      <div class="relative flex py-5 items-center">
-        <div class="flex-grow border-t border-gray-400"></div>
-        <span class="flex-shrink mx-4 text-gray-400 title">Gradient</span>
-        <div class="flex-grow border-t border-gray-400"></div>
-      </div>
-      <div class="grid place-items-center">
-        <GradientBlock :gradientColors="[primary, secondary, accent1]" />
-      </div>
-    </div>
   </div>
 </template>
