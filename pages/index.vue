@@ -81,6 +81,8 @@ function log(currentTopic) {
 
 <template>
   <div class="grid place-items-center">
+    <ColorForm />
+
     <!-- main form -->
     <div class="form-control pb-8">
       <form @submit.prevent="onSubmit" class="sm:w-[460px]">
