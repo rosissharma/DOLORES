@@ -35,6 +35,7 @@
         </button>
       </div>
     </form>
+    {{ generate_palette }}
   </div>
 </template>
 
