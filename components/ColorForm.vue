@@ -35,7 +35,6 @@
         </button>
       </div>
     </form>
-    {{ generate_palette }}
   </div>
 </template>
 
@@ -56,9 +55,13 @@ let handleSubmit = async () => {
   let generate_palette = toRaw(palette.value);
   // console.log("results from component: ", toRaw(palette.value));
 
-  if (generate_palette) {
+  if (
+    generate_palette !== undefined &&
+    generate_palette !== null &&
+    generate_palette !== ""
+  ) {
     loading.value = false;
-    router.push({
+    await navigateTo({
       path: `/palette/${topic}`,
       query: {
         primary: generate_palette.primary,
