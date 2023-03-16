@@ -18,7 +18,7 @@ let accent3 = route.accent3;
 
 
 <template>
-  <div class="w-5/6 mx-auto">
+  <div class="grid place-items-center">
     <ColorForm />
     <h1 class="text-bold text-4xl text-center">🎨 {{ id }}</h1>
 
