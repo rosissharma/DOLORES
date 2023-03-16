@@ -53,13 +53,10 @@ let handleSubmit = async () => {
 
   let { palette } = await getColors(topic);
   let generate_palette = toRaw(palette.value);
-  // console.log("results from component: ", toRaw(palette.value));
+  console.log("palette raw val: ", toRaw(palette.value));
+  console.log("generated palette: ", generate_palette);
 
-  if (
-    generate_palette !== undefined &&
-    generate_palette !== null &&
-    generate_palette !== ""
-  ) {
+  if (generate_palette !== undefined && generate_palette !== null) {
     loading.value = false;
     await navigateTo({
       path: `/palette/${topic}`,
@@ -71,6 +68,8 @@ let handleSubmit = async () => {
         accent3: generate_palette.accent3,
       },
     });
+  } else {
+    return;
   }
 };
 </script>
