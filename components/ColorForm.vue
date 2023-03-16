@@ -36,12 +36,25 @@
 let topic;
 
 let handleSubmit = async () => {
+  const router = useRouter();
   //   navigateTo(`/palette/${topic}`);
   // let results = getColors(topic);
   // console.log("results from component: ", toRaw((await results).palette.value));
   //   console.log("results from component: ", (await results).palette);
 
   let { palette } = await getColors(topic);
-  console.log("results from component: ", toRaw(palette.value));
+  let generate_palette = toRaw(palette.value);
+  // console.log("results from component: ", toRaw(palette.value));
+
+  router.push({
+    path: `/palette/${topic}`,
+    query: {
+      primary: generate_palette.primary,
+      secondary: generate_palette.secondary,
+      accent1: generate_palette.accent1,
+      accent2: generate_palette.accent2,
+      accent3: generate_palette.accent3,
+    },
+  });
 };
 </script>
