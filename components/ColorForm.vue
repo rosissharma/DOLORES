@@ -6,12 +6,18 @@
         <input
           id="topic"
           type="text"
-          placeholder="Describe the palette you want..."
+          placeholder="Describe your palette..."
           required
           v-model="topic"
-          class="input input-bordered w-full sm:w-full"
+          :disabled="loading"
+          class="input input-bordered w-[240px] sm:w-full"
         />
-        <button class="btn btn-square">
+        <button
+          v-if="loading"
+          :disabled="loading"
+          class="btn btn-square loading"
+        ></button>
+        <button v-else type="submit" :disabled="loading" class="btn btn-square">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -35,7 +41,10 @@
 <script setup>
 let topic;
 
+const loading = ref(false);
+
 let handleSubmit = async () => {
+  loading.value = true;
   const router = useRouter();
   //   navigateTo(`/palette/${topic}`);
   // let results = getColors(topic);
@@ -46,15 +55,18 @@ let handleSubmit = async () => {
   let generate_palette = toRaw(palette.value);
   // console.log("results from component: ", toRaw(palette.value));
 
-  router.push({
-    path: `/palette/${topic}`,
-    query: {
-      primary: generate_palette.primary,
-      secondary: generate_palette.secondary,
-      accent1: generate_palette.accent1,
-      accent2: generate_palette.accent2,
-      accent3: generate_palette.accent3,
-    },
-  });
+  if (generate_palette) {
+    loading.value = false;
+    router.push({
+      path: `/palette/${topic}`,
+      query: {
+        primary: generate_palette.primary,
+        secondary: generate_palette.secondary,
+        accent1: generate_palette.accent1,
+        accent2: generate_palette.accent2,
+        accent3: generate_palette.accent3,
+      },
+    });
+  }
 };
 </script>
