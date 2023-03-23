@@ -1,4 +1,3 @@
-const topic = ref("");
 const result = ref("");
 const loading = ref(false);
 const message = ref("");
