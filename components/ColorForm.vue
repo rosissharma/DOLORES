@@ -45,7 +45,6 @@ const loading = ref(false);
 
 let handleSubmit = async () => {
   loading.value = true;
-  const router = useRouter();
   //   navigateTo(`/palette/${topic}`);
   // let results = getColors(topic);
   // console.log("results from component: ", toRaw((await results).palette.value));
@@ -53,8 +52,8 @@ let handleSubmit = async () => {
 
   let { palette } = await getColors(topic);
   let generate_palette = toRaw(palette.value);
-  console.log("palette raw val: ", toRaw(palette.value));
-  console.log("generated palette: ", generate_palette);
+  // console.log("palette raw val: ", toRaw(palette.value));
+  // console.log("generated palette: ", generate_palette);
 
   if (generate_palette !== undefined && generate_palette !== null) {
     loading.value = false;
