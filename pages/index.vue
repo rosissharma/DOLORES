@@ -24,7 +24,7 @@ const onSubmit = async () => {
   loading.value = true;
   message.value = "";
 
-  // log(topic.value);
+  log(topic.value);
 
   fetch("/api/generate", {
     method: "POST",
