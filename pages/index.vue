@@ -24,6 +24,8 @@ const onSubmit = async () => {
   loading.value = true;
   message.value = "";
 
+  console.log("topic", topic.value);
+
   // log topic to LogSnag
   log(topic.value);
 
@@ -68,12 +70,7 @@ function log(currentTopic) {
   logsnag.publish({
     channel: "color-generated",
     event: "Color Generated",
-    description: `Topic: ${currentTopic}
-    Primary: ${primary.value}
-    Secondary: ${secondary.value}
-    Accent1: ${accent1.value}
-    Accent2: ${accent2.value}
-    Accent3: ${accent3.value}`,
+    description: `Topic: ${currentTopic} Primary: ${primary.value} Secondary: ${secondary.value} Accent1: ${accent1.value} Accent2: ${accent2.value} Accent3: ${accent3.value}`,
     icon: "🎨",
     notify: true,
   });
