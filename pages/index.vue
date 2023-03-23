@@ -24,6 +24,7 @@ const onSubmit = async () => {
   loading.value = true;
   message.value = "";
 
+  // log topic to LogSnag
   log(topic.value);
 
   fetch("/api/generate", {
