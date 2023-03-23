@@ -14,6 +14,10 @@ let secondary = route.secondary;
 let accent1 = route.accent1;
 let accent2 = route.accent2;
 let accent3 = route.accent3;
+
+definePageMeta({
+  middleware: ["logger"],
+});
 </script>
 
 
