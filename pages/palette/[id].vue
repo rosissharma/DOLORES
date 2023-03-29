@@ -1,25 +1,83 @@
 <script setup>
-const topic = ref("");
-const result = ref("");
-const loading = ref(false);
-const message = ref("");
+const { id } = useRoute().params;
 
 // color types
 const typePrimary = ref("Primary");
 const typeSecondary = ref("Secondary");
 const typeAccent = ref("Accent");
 
-// set it to empty on production
-let primary = ref("#ffb8c1");
-let secondary = ref("#9BC3E4");
-let accent1 = ref("#FBE7D0");
-let accent2 = ref("#F3F3DD");
-let accent3 = ref("#D0E6DF");
+const route = useRoute().query;
+// console.log("route: ", route);
+
+const url = useRoute().fullPath;
+console.log("url: ", url);
+
+let primary = route.primary;
+let secondary = route.secondary;
+let accent1 = route.accent1;
+let accent2 = route.accent2;
+let accent3 = route.accent3;
+
+let shareLink = () => {
+  navigator
+    .share({
+      title: `DOLORES | ${id}`,
+      text: `${primary} ${secondary} ${accent1} ${accent2} ${accent3}`,
+      url: `http://dolores-stage.netlify.app${url}`,
+    })
+    .then(() => console.log("Link shared successfully"))
+    .catch((error) => console.log("Error sharing link:", error));
+};
 </script>
+
 
 <template>
   <div class="grid place-items-center">
     <ColorForm />
+    <section class="flex justify-between gap-2 w-[24rem] xl:w-[60rem]">
+      <button
+        class="btn btn-square focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+        @click="() => $router.go(-1)"
+        title="Go back"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+      </button>
+      <h1 class="text-bold text-4xl text-center">🎨 {{ id }}</h1>
+
+      <button
+        class="btn btn-square rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+        title="Share"
+        @click="shareLink"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15"
+          />
+        </svg>
+      </button>
+    </section>
 
     <div>
       <div>
@@ -72,20 +130,5 @@ let accent3 = ref("#D0E6DF");
         </div>
       </div>
     </div>
-
-    <!-- display while fetching data -->
-    <div v-if="loading">
-      <img src="../assets/img/pika.gif" alt="Pikachu Running" width="60" />
-    </div>
-    <!-- display fetched message -->
-    <div v-else-if="message">
-      {{ message }}
-    </div>
   </div>
 </template>
-
-<style scoped>
-.title {
-  @apply uppercase font-light;
-}
-</style>

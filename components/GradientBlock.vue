@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[23rem] sm:w-full h-52 rounded-lg shadow-lg relative sm:h-72 lg:h-96"
+    class="w-[23rem] xl:w-[60rem] h-52 rounded-lg shadow-lg relative sm:h-72 lg:h-96"
     :style="{ backgroundImage: createBackgroundString }"
   >
     <button
