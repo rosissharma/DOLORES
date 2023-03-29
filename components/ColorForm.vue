@@ -1,7 +1,7 @@
 <template>
   <!-- main form -->
   <div class="form-control pb-8 mx-10">
-    <pre>v1.2</pre>
+    <pre>v2.0</pre>
     <form @submit.prevent="handleSubmit" class="sm:w-[460px]">
       <div class="input-group">
         <input
