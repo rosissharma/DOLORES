@@ -34,7 +34,10 @@ let shareLink = () => {
 <template>
   <div class="grid place-items-center">
     <ColorForm />
-    <section class="flex justify-between gap-2 w-[24rem] xl:w-[60rem]">
+    <section
+      id="sticky"
+      class="flex justify-between gap-2 w-[24rem] xl:w-[60rem]"
+    >
       <button
         class="btn btn-square focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
         @click="() => $router.go(-1)"
@@ -132,3 +135,15 @@ let shareLink = () => {
     </div>
   </div>
 </template>
+
+<style>
+#sticky {
+  position: sticky;
+  top: 2%;
+  z-index: 100;
+  background: white;
+  padding: 10px;
+  border-radius: 9px;
+  outline: 1px solid #9ca3b04f;
+}
+</style>
