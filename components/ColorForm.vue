@@ -40,7 +40,17 @@
 </template>
 
 <script setup>
+import { LogSnag } from "logsnag";
+
+const config = useRuntimeConfig();
+
 let topic;
+
+let primaryColor;
+let secondaryColor;
+let accent1Color;
+let accent2Color;
+let accent3Color;
 
 const loading = ref(false);
 
@@ -56,11 +66,14 @@ let handleSubmit = async () => {
   // console.log("palette raw val: ", toRaw(palette.value));
   console.log("generated palette: ", generate_palette);
 
-  let primaryColor = generate_palette.primary;
-  let secondaryColor = generate_palette.secondary;
-  let accent1Color = generate_palette.accent1;
-  let accent2Color = generate_palette.accent2;
-  let accent3Color = generate_palette.accent3;
+  // log topic to LogSnag
+  log(topic);
+
+  primaryColor = generate_palette.primary;
+  secondaryColor = generate_palette.secondary;
+  accent1Color = generate_palette.accent1;
+  accent2Color = generate_palette.accent2;
+  accent3Color = generate_palette.accent3;
 
   if (generate_palette !== undefined && generate_palette !== null) {
     loading.value = false;
@@ -78,4 +91,24 @@ let handleSubmit = async () => {
     return;
   }
 };
+
+function log(currentTopic) {
+  // handle LogSnag
+  const logsnag = new LogSnag({
+    token: config.LOG_SNAG_KEY,
+    project: "dolores",
+  });
+  logsnag.publish({
+    channel: "color-generated",
+    event: "Color Generated",
+    description: `Topic: ${currentTopic}
+    Primary: ${primaryColor}
+    Secondary: ${secondaryColor}
+    Accent1: ${accent1Color}
+    Accent2: ${accent2Color}
+    Accent3: ${accent3Color}`,
+    icon: "🎨",
+    notify: true,
+  });
+}
 </script>
