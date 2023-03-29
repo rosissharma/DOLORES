@@ -1,7 +1,6 @@
 <template>
   <!-- main form -->
   <div class="form-control pb-8 mx-10">
-    <pre>v2.1</pre>
     <form @submit.prevent="handleSubmit" class="sm:w-[460px]">
       <div class="input-group">
         <input
@@ -67,13 +66,33 @@ let handleSubmit = async () => {
   console.log("generated palette: ", generate_palette);
 
   // log topic to LogSnag
-  log(topic);
+  // log(topic);
 
   primaryColor = generate_palette.primary;
   secondaryColor = generate_palette.secondary;
   accent1Color = generate_palette.accent1;
   accent2Color = generate_palette.accent2;
   accent3Color = generate_palette.accent3;
+
+  function log(currentTopic) {
+    // handle LogSnag
+    const logsnag = new LogSnag({
+      token: config.LOG_SNAG_KEY,
+      project: "dolores",
+    });
+    logsnag.publish({
+      channel: "color-generated",
+      event: "Color Generated",
+      description: `Topic: ${currentTopic}
+    Primary: ${generate_palette.primary}
+    Secondary: ${generate_palette.secondary}
+    Accent1: ${generate_palette.accent1}
+    Accent2: ${generate_palette.accent2}
+    Accent3: ${generate_palette.accent3}`,
+      icon: "🎨",
+      notify: true,
+    });
+  }
 
   if (generate_palette !== undefined && generate_palette !== null) {
     loading.value = false;
@@ -91,24 +110,4 @@ let handleSubmit = async () => {
     return;
   }
 };
-
-function log(currentTopic) {
-  // handle LogSnag
-  const logsnag = new LogSnag({
-    token: config.LOG_SNAG_KEY,
-    project: "dolores",
-  });
-  logsnag.publish({
-    channel: "color-generated",
-    event: "Color Generated",
-    description: `Topic: ${currentTopic}
-    Primary: ${primaryColor}
-    Secondary: ${secondaryColor}
-    Accent1: ${accent1Color}
-    Accent2: ${accent2Color}
-    Accent3: ${accent3Color}`,
-    icon: "🎨",
-    notify: true,
-  });
-}
 </script>
