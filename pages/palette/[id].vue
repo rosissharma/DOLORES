@@ -36,7 +36,7 @@ let shareLink = () => {
     <ColorForm />
     <section
       id="sticky"
-      class="flex justify-between gap-2 w-[24rem] xl:w-[60rem]"
+      class="flex justify-between gap-2 w-[95%] xl:w-[60rem] rounded-xl"
     >
       <button
         class="btn btn-square focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
@@ -86,9 +86,9 @@ let shareLink = () => {
       <div>
         <!-- title -->
         <div class="relative flex py-5 items-center">
-          <div class="flex-grow border-t border-gray-400"></div>
+          <div class="flex-grow border-t border-[9ca3b04f]"></div>
           <span class="flex-shrink mx-4 text-gray-400 title">Triadic</span>
-          <div class="flex-grow border-t border-gray-400"></div>
+          <div class="flex-grow border-t border-[9ca3b04f]"></div>
         </div>
         <!-- triadic color block -->
         <div
@@ -107,9 +107,9 @@ let shareLink = () => {
       <div class="mt-6">
         <!-- title -->
         <div class="relative flex py-5 items-center">
-          <div class="flex-grow border-t border-gray-400"></div>
+          <div class="flex-grow border-t border-[9ca3b04f]"></div>
           <span class="flex-shrink mx-4 text-gray-400 title">Grid</span>
-          <div class="flex-grow border-t border-gray-400"></div>
+          <div class="flex-grow border-t border-[9ca3b04f]"></div>
         </div>
         <div class="h-52 flex gap-1 sm:h-80 sm:gap-4 mx-1">
           <GridBlock :color="primary" />
@@ -124,9 +124,9 @@ let shareLink = () => {
       <div class="my-10">
         <!-- title -->
         <div class="relative flex py-5 items-center">
-          <div class="flex-grow border-t border-gray-400"></div>
+          <div class="flex-grow border-t border-[9ca3b04f]"></div>
           <span class="flex-shrink mx-4 text-gray-400 title">Gradient</span>
-          <div class="flex-grow border-t border-gray-400"></div>
+          <div class="flex-grow border-t border-[9ca3b04f]"></div>
         </div>
         <div class="grid place-items-center">
           <GradientBlock :gradientColors="[primary, secondary, accent1]" />
@@ -143,7 +143,6 @@ let shareLink = () => {
   z-index: 100;
   background: white;
   padding: 10px;
-  border-radius: 9px;
-  outline: 1px solid #9ca3b04f;
+  border: 2px solid #9ca3b04f;
 }
 </style>
