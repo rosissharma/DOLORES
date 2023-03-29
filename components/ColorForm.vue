@@ -1,6 +1,7 @@
 <template>
   <!-- main form -->
   <div class="form-control pb-8 mx-10">
+    <pre>v1.0</pre>
     <form @submit.prevent="handleSubmit" class="sm:w-[460px]">
       <div class="input-group">
         <input
@@ -53,18 +54,24 @@ let handleSubmit = async () => {
   let { palette } = await getColors(topic);
   let generate_palette = toRaw(palette.value);
   // console.log("palette raw val: ", toRaw(palette.value));
-  // console.log("generated palette: ", generate_palette);
+  console.log("generated palette: ", generate_palette);
+
+  let primaryColor = generate_palette.primary;
+  let secondaryColor = generate_palette.secondary;
+  let accent1Color = generate_palette.accent1;
+  let accent2Color = generate_palette.accent2;
+  let accent3Color = generate_palette.accent3;
 
   if (generate_palette !== undefined && generate_palette !== null) {
     loading.value = false;
     await navigateTo({
       path: `/palette/${topic}`,
       query: {
-        primary: generate_palette.primary,
-        secondary: generate_palette.secondary,
-        accent1: generate_palette.accent1,
-        accent2: generate_palette.accent2,
-        accent3: generate_palette.accent3,
+        primary: primaryColor,
+        secondary: secondaryColor,
+        accent1: accent1Color,
+        accent2: accent2Color,
+        accent3: accent3Color,
       },
     });
   } else {
