@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "daisyui": "^2.50.0",
+    "dotenv": "^16.0.3",
     "logsnag": "^0.1.6",
     "openai": "^3.1.0"
   }
