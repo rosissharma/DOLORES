@@ -1,6 +1,5 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# ColorsAI
+![Screenshot of the web app.](https://raw.githubusercontent.com/rosissharma/ColorsAI/refs/heads/main/assets/img/Project%20Dolores.png?token=GHSAT0AAAAAACX5YJLASVX726LPJRXT4LNQZXTPPTA)
 
 ## Setup
 
