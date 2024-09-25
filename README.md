@@ -1,5 +1,7 @@
-# ColorsAI
+# DOLORES
 ![Screenshot of the web app.](https://raw.githubusercontent.com/rosissharma/ColorsAI/refs/heads/main/assets/img/Project%20Dolores.png?token=GHSAT0AAAAAACX5YJLASVX726LPJRXT4LNQZXTPPTA)
+
+DOLORES is an innovative AI color generative assistant that harnesses the power of OpenAI to create stunning color palettes for your projects. With DOLORES, you can easily generate unique and harmonious color schemes for your designs, logos, and branding materials.
 
 ## Setup
 
